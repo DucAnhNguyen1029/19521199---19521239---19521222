@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include<windows.h>
+#include<conio.h>
 using namespace std;
 
 const int width = 20;
@@ -24,8 +25,27 @@ void DrawMap()
 
 void Key_input()
 {
-
-
+	if (_kbhit)
+	{
+		switch (_getch())
+		{
+		case 'a':
+			dir = Left;
+			break;
+		case 'w':
+			dir = Up;
+			break;
+		case 'd':
+			dir = Right;
+			break;
+		case 's':
+			dir = Down;
+			break;
+		case 'x':
+			end_game = true;
+			break;
+		}
+	}
 }
 
 
