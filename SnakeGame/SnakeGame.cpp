@@ -3,6 +3,7 @@
 #include<windows.h>
 #include<conio.h>
 #include<ctime>
+#include<cstdlib>
 using namespace std;
 
 const int width = 20;
