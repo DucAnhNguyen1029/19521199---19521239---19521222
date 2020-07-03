@@ -28,7 +28,7 @@ void DrawMap()
 {
 	system("cls");
 	cout << "Di chuyen: WASD\nThoat: X\n";
-
+	for (int i = 0; i < width; i++)
 }
 
 void Key_input()
