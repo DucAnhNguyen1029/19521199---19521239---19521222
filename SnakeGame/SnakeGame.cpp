@@ -59,6 +59,11 @@ void DrawMap()
 				if (!print)
 					cout << " ";
 			}
+		}
+		cout << endl;
+	}
+	cout << "Score: " << score << endl;
+}
 }
 
 void Key_input()
