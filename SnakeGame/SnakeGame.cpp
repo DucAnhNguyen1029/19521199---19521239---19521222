@@ -59,7 +59,23 @@ void Key_input()
 void Rule()
 {
 
-
+	switch (dir)
+	{
+	case Left:
+		x--;
+		break;
+	case Up:
+		y--;
+		break;
+	case Right:
+		x++;
+		break;
+	case Down:
+		y++;
+		break;
+	default:
+		break;
+	}
 }
 
 int main()
