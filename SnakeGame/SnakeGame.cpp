@@ -26,7 +26,8 @@ void New_snake()
 
 void DrawMap()
 {
-
+	system("cls");
+	cout << "Di chuyen: WASD\nThoat: X\n";
 
 }
 
