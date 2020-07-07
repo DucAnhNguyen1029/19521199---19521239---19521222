@@ -12,6 +12,8 @@ int x, y, food_X, food_Y, score;
 bool end_game;
 enum direction { Stop = 0, Left, Up, Right, Down };
 direction dir;
+int tail_X[200], tail_Y[200];
+int ntail;
 
 void New_snake()
 {
