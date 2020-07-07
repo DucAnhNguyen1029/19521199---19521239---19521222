@@ -67,7 +67,7 @@ void DrawMap()
 	}
 	cout << "Score: " << score << endl;
 }
-}
+
 
 void Key_input()
 {
