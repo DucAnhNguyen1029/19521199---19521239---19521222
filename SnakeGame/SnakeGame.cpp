@@ -27,8 +27,44 @@ void New_snake()
 
 void DrawMap()
 {
-
-
+	system("cls");
+	cout << "Di chuyen: WASD\nThoat: X\n";
+	for (int i = 0; i < width; i++)
+		{
+		for (int j = 0; j < length; j++)
+		{
+			if (i == 0 || i == width - 1)
+				cout << "# ";
+			else
+			{
+				if (j == 0 || j == length - 1)
+					cout << "# ";
+				else
+					cout << "  ";
+			}
+			if (i == y && j == x)
+				cout << "S";
+			else if (i == food_Y && j == food_X)
+				cout << "F";
+			else
+			{
+				bool print = false;
+				for (int k = 0; k < ntail; k++)
+				{
+					if (tail_Y[k] == i && tail_X[k] == j)
+					{
+						cout << "o";
+						print = true;
+					}
+				}
+				if (!print)
+					cout << " ";
+			}
+		}
+		cout << endl;
+	}
+	cout << "Score: " << score << endl;
+}
 }
 
 void Key_input()
