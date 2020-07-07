@@ -123,6 +123,14 @@ void Rule()
 		y = 1;
 	else if (y < 1)
 		y = width - 2;
+	if (x == food_X && y == food_Y)
+	{
+		srand(time(NULL));
+		score += 10;
+		food_X = rand() % ((length - 2) - 2 + 1) + 2;
+		food_Y = rand() % ((width - 2) - 2 + 1) + 2;
+		ntail++;
+	}
 	for (int i = 0; i < ntail; i++)
 	{
 		if (x == tail_X[i] && y == tail_Y[i])
