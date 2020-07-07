@@ -123,6 +123,11 @@ void Rule()
 		y = 1;
 	else if (y < 1)
 		y = width - 2;
+	for (int i = 0; i < ntail; i++)
+	{
+		if (x == tail_X[i] && y == tail_Y[i])
+			end_game = true;
+	}
 }
 
 int main()
