@@ -115,6 +115,14 @@ void Rule()
 	default:
 		break;
 	}
+	if (x >= length - 1)
+		x = 0;
+	else if (x < 0)
+		x = length - 2;
+	if (y >= width - 1)
+		y = 1;
+	else if (y < 1)
+		y = width - 2;
 }
 
 int main()
