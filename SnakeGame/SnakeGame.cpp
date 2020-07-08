@@ -119,12 +119,8 @@ void Rule()
 
 	for (int i = 1; i < ntail; i++)
 	{
-		x2 = tail_X[i];
-		y2 = tail_Y[i];
-		tail_X[i] = x_sau;
-		tail_Y[i] = y_sau;
-		x_sau = x2;
-		y_sau = y2;
+		swap(tail_X[i], x_sau);
+		swap(tail_Y[i], y_sau);
 	}
 
 	if (x >= length - 1)
@@ -152,7 +148,8 @@ void Rule()
 int main()
 {
 	New_snake();
-	do{
+	do
+	{
 		DrawMap();
 		Key_input();
 		Rule();
