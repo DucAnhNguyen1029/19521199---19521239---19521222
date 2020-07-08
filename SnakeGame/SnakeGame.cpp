@@ -76,15 +76,23 @@ void Key_input()
 		switch (_getch())
 		{
 		case 'a':
+			if (dir == Right)
+				break;
 			dir = Left;
 			break;
 		case 'w':
+			if (dir == Down)
+				break;
 			dir = Up;
 			break;
 		case 'd':
+			if (dir == Left)
+				break;
 			dir = Right;
 			break;
 		case 's':
+			if (dir == Up)
+				break;
 			dir = Down;
 			break;
 		case 'x':
