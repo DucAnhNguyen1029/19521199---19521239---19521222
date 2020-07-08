@@ -1,9 +1,8 @@
 
 #include <iostream>
-#include<windows.h>
-#include<conio.h>
-#include<ctime>
-#include<cstdlib>
+#include <conio.h>
+#include <windows.h>
+
 using namespace std;
 
 const int width = 20;
@@ -17,7 +16,6 @@ int ntail;
 
 void New_snake()
 {
-	srand(time(NULL));
 	end_game = false;
 	score = 0;
 	dir = Stop;
@@ -44,7 +42,7 @@ void DrawMap()
 				else
 					cout << "  ";
 			}
-			if (i == y && j == x)
+			if (i == y && j == x)	
 				cout << "S";
 			else if (i == food_Y && j == food_X)
 				cout << "F";
@@ -97,6 +95,11 @@ void Key_input()
 
 void Rule()
 {
+	int x_sau = tail_X[0];
+	int y_sau = tail_Y[0];
+	int x2, y2;
+	tail_X[0] = x;
+	tail_Y[0] = y;
 
 	switch (dir)
 	{
@@ -112,9 +115,18 @@ void Rule()
 	case Down:
 		y++;
 		break;
-	default:
-		break;
 	}
+
+	for (int i = 1; i < ntail; i++)
+	{
+		x2 = tail_X[i];
+		y2 = tail_Y[i];
+		tail_X[i] = x_sau;
+		tail_Y[i] = y_sau;
+		x_sau = x2;
+		y_sau = y2;
+	}
+
 	if (x >= length - 1)
 		x = 0;
 	else if (x < 0)
@@ -125,11 +137,10 @@ void Rule()
 		y = width - 2;
 	if (x == food_X && y == food_Y)
 	{
-		srand(time(NULL));
 		score += 10;
 		food_X = rand() % ((length - 2) - 2 + 1) + 2;
 		food_Y = rand() % ((width - 2) - 2 + 1) + 2;
-		ntail++;
+		ntail++;	
 	}
 	for (int i = 0; i < ntail; i++)
 	{
@@ -141,12 +152,11 @@ void Rule()
 int main()
 {
 	New_snake();
-	while (!end_game)
-	{
+	do{
 		DrawMap();
 		Key_input();
 		Rule();
 		Sleep(30);
-	}
+	} while (!end_game);
     return 0;
 }
