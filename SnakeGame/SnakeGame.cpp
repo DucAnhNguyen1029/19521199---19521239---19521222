@@ -32,7 +32,7 @@ void DrawMap()
 	system("cls");
 	cout << "Di chuyen: WASD\nThoat: X\n";
 	for (int i = 0; i < width; i++)
-		{
+	{
 		for (int j = 0; j < length; j++)
 		{
 			if (i == 0 || i == width - 1)
