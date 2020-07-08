@@ -69,20 +69,28 @@ void DrawMap()
 
 void Key_input()
 {
-	if (_kbhit)
+	if (_kbhit())
 	{
 		switch (_getch())
 		{
 		case 'a':
+			if (dir == Right)
+				break;
 			dir = Left;
 			break;
-		case 'w':
-			dir = Up;
-			break;
 		case 'd':
+			if (dir == Left)
+				break;
 			dir = Right;
 			break;
+		case 'w':
+			if (dir == Down)
+				break;
+			dir = Up;
+			break;
 		case 's':
+			if (dir == Up)
+				break;
 			dir = Down;
 			break;
 		case 'x':
@@ -155,5 +163,9 @@ int main()
 		Rule();
 		Sleep(30);
 	} while (!end_game);
+	if (end_game == true) {
+		cout << "GAME OVERRRR!!" << endl;
+	}
+	system("pause");
     return 0;
 }
