@@ -13,7 +13,7 @@ enum direction { Stop = 0, Left, Up, Right, Down };
 direction dir;
 int tail_X[200], tail_Y[200];
 int ntail;
-
+int speed = 20;
 void New_snake()
 {
 	end_game = false;
@@ -153,15 +153,47 @@ void Rule()
 	}
 }
 
+void Menu()
+{
+	int diff;
+	do
+	{
+		cout << "Chon do kho:\n1.Lv1\t2.Lv2\t3.Lv3\t4.Lv4\t5.Lv5\n";
+		cin >> diff;
+	} while (diff < 1 || diff>5);
+	switch (diff)
+	{
+	case 1:
+		speed *= 10;
+		break;
+	case 2:
+		speed *= 8;
+		break;
+	case 3:
+		speed *= 6;
+		break;
+	case 4:
+		speed *= 4;
+		break;
+	case 5:
+		speed *= 2;
+		break;
+	}
+	cout << "Bat dau tro choi?\n";
+	system("pause");
+	system("cls");
+}
+
 int main()
 {
 	New_snake();
+	Menu();
 	do
 	{
 		DrawMap();
 		Key_input();
 		Rule();
-		Sleep(30);
+		Sleep(speed);
 	} while (!end_game);
 	if (end_game == true) {
 		cout << "GAME OVERRRR!!" << endl;
