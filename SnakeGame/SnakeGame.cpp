@@ -14,6 +14,8 @@ direction dir;
 int tail_X[200], tail_Y[200];
 int ntail;
 int speed = 20;
+int mode;
+
 void New_snake()
 {
 	end_game = false;
@@ -131,14 +133,30 @@ void Rule()
 		swap(tail_Y[i], y_sau);
 	}
 
-	if (x >= length - 1)
-		x = 0;
-	else if (x < 0)
-		x = length - 2;
-	if (y >= width - 1)
-		y = 1;
-	else if (y < 1)
-		y = width - 2;
+	switch (mode)
+	{
+	case 1:
+	{
+		if (x >= length - 1 || x < 0)
+			end_game = true;
+		else if (y >= width - 1 || y < 1)
+			end_game = true;
+		break;
+	}
+	case 2:
+	{
+		if (x >= length - 1)
+			x = 0;
+		else if (x < 0)
+			x = length - 2;
+		if (y >= width - 1)
+			y = 1;
+		else if (y < 1)
+			y = width - 2;
+		break;
+	}
+	}
+	
 	if (x == food_X && y == food_Y)
 	{
 		score += 10;
@@ -158,7 +176,7 @@ void Menu()
 	int diff;
 	do
 	{
-		cout << "Chon do kho:\n1.Lv1\t2.Lv2\t3.Lv3\t4.Lv4\t5.Lv5\n";
+		cout << "1.Lv1\t2.Lv2\t3.Lv3\t4.Lv4\t5.Lv5\nChon do kho: ";
 		cin >> diff;
 	} while (diff < 1 || diff>5);
 	switch (diff)
@@ -179,9 +197,15 @@ void Menu()
 		speed *= 2;
 		break;
 	}
+	do
+	{
+		cout << "\n1.Che do co ban\t2.Che do tu do\nChon che do: ";
+		cin >> mode;
+	} while (mode < 1 || mode > 2);
 	cout << "Bat dau tro choi?\n";
 	system("pause");
 	system("cls");
+
 }
 
 int main()
@@ -195,7 +219,8 @@ int main()
 		Rule();
 		Sleep(speed);
 	} while (!end_game);
-	if (end_game == true) {
+	if (end_game == true)
+	{
 		cout << "GAME OVERRRR!!" << endl;
 	}
 	system("pause");
