@@ -65,7 +65,7 @@ void DrawMap()
 		}
 		cout << endl;
 	}
-	cout << "Score: " << score << endl;
+	cout << "Diem So: " << score << endl;
 }
 
 
