@@ -30,7 +30,8 @@ void New_snake()
 void DrawMap()
 {
 	system("cls");
-	cout << "Di chuyen: WASD\nThoat: X\n";
+	cout << "Di chuyen: WASD;
+	cout << endl << "Thoat: X";
 	for (int i = 0; i < width; i++)
 	{
 		for (int j = 0; j < length; j++)
