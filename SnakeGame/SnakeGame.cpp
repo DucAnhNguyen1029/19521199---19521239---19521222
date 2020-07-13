@@ -110,6 +110,11 @@ void Rule()
 	int x2, y2;
 	tail_X[0] = x;
 	tail_Y[0] = y;
+	for (int i = 1; i < ntail; i++)
+	{
+		swap(tail_X[i], x_sau);
+		swap(tail_Y[i], y_sau);
+	}
 
 	switch (dir)
 	{
@@ -125,12 +130,6 @@ void Rule()
 	case Down:
 		y++;
 		break;
-	}
-
-	for (int i = 1; i < ntail; i++)
-	{
-		swap(tail_X[i], x_sau);
-		swap(tail_Y[i], y_sau);
 	}
 
 	switch (mode)
