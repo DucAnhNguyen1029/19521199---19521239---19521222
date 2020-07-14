@@ -45,9 +45,9 @@ void DrawMap()
 					cout << "  ";
 			}
 			if (i == y && j == x)	
-				cout << "S";
+				cout << "H";
 			else if (i == food_Y && j == food_X)
-				cout << "F";
+				cout << "X";
 			else
 			{
 				bool print = false;
@@ -55,7 +55,7 @@ void DrawMap()
 				{
 					if (tail_Y[k] == i && tail_X[k] == j)
 					{
-						cout << "o";
+						cout << "O";
 						print = true;
 					}
 				}
